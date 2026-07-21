@@ -1,0 +1,16 @@
+{
+  "name": "Chicago \u201926: Trip Quest",
+  "short_name": "Chicago \u201926",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f1df",
+  "theme_color": "#17324d",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
