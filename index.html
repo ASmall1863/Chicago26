@@ -1,50 +1,32 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-  <meta name="theme-color" content="#17324d"/>
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-  <meta name="apple-mobile-web-app-title" content="Chicago ’26"/>
-  <link rel="manifest" href="manifest.webmanifest"/>
-  <link rel="apple-touch-icon" href="icon.svg"/>
-  <link rel="stylesheet" href="styles.css"/>
-  <title>Chicago ’26</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17324d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Chicago ’26">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="styles.css">
+<title>Chicago ’26</title>
 </head>
 <body>
-  <header class="top">
-    <div>
-      <p class="eyebrow">ANDREW’S TRIP RPG</p>
-      <h1>CHICAGO ’26</h1>
-    </div>
-    <button id="editBtn" class="icon-btn" aria-label="Edit itinerary">✎</button>
-  </header>
-
-  <main>
-    <section id="hero" class="hero"></section>
-    <section id="screen" class="screen"></section>
-  </main>
-
-  <nav class="tabs" aria-label="Primary">
-    <button data-tab="today" class="active">☀️<span>Today</span></button>
-    <button data-tab="trip">🗓️<span>Trip</span></button>
-    <button data-tab="quests">⭐<span>Quests</span></button>
-    <button data-tab="journal">📓<span>Journal</span></button>
-    <button data-tab="profile">🎒<span>Profile</span></button>
-  </nav>
-
-  <dialog id="modal">
-    <form method="dialog" id="modalForm">
-      <div id="modalBody"></div>
-      <div class="modal-actions">
-        <button value="cancel" class="secondary">Cancel</button>
-        <button id="saveModal" value="default">Save</button>
-      </div>
-    </form>
-  </dialog>
-  <div id="toast" role="status"></div>
-  <script>window.SEED_ITINERARY = [{"date": "2026-08-04", "label": "Departure", "items": [{"id": "amtrak-out", "time": "16:00", "title": "Board Amtrak for Chicago", "area": "Washington, DC", "type": "main", "xp": 60, "icon": "\ud83d\ude86", "notes": "Roomette trip begins. Add the exact train number and departure time in Edit mode.", "map": "Union Station Washington DC"}]}, {"date": "2026-08-05", "label": "Arrival + Wicker Park", "items": [{"id": "arrive-chi", "time": "10:00", "title": "Arrive at Chicago Union Station", "area": "The Loop", "type": "main", "xp": 40, "icon": "\ud83c\udfd9\ufe0f", "notes": "Get settled, drop bags, and start the trip.", "map": "Chicago Union Station"}, {"id": "wicker", "time": "14:00", "title": "Explore Wicker Park", "area": "Wicker Park", "type": "main", "xp": 45, "icon": "\ud83c\udfb8", "notes": "Neighborhood wandering, coffee, shops, and record-store possibilities.", "map": "Wicker Park Chicago"}, {"id": "pequods", "time": "19:30", "title": "Pequod\u2019s Pizza", "area": "Lincoln Park", "type": "main", "xp": 70, "icon": "\ud83c\udf55", "notes": "7:30 p.m. reservation. Caramelized-crust achievement unlocked.", "map": "Pequod's Pizza Chicago"}]}, {"date": "2026-08-06", "label": "Hyde Park", "items": [{"id": "phoenix", "time": "10:30", "title": "Garden of the Phoenix", "area": "Jackson Park", "type": "main", "xp": 50, "icon": "\ud83c\udf38", "notes": "Walk the Japanese garden and Jackson Park.", "map": "Garden of the Phoenix Chicago"}, {"id": "obama", "time": "13:30", "title": "Obama Presidential Center", "area": "Jackson Park", "type": "main", "xp": 80, "icon": "\ud83c\udfdb\ufe0f", "notes": "1:30 p.m. itinerary anchor. Add ticket details in the journal.", "map": "Obama Presidential Center Chicago"}, {"id": "hyde-side", "time": "16:30", "title": "Hyde Park side quest", "area": "Hyde Park", "type": "side", "xp": 25, "icon": "\ud83d\udcda", "notes": "Bookstore, architecture, coffee, or lakefront depending on energy.", "map": "Hyde Park Chicago"}]}, {"date": "2026-08-07", "label": "Museum Campus", "items": [{"id": "shedd", "time": "10:00", "title": "Shedd Aquarium", "area": "Museum Campus", "type": "main", "xp": 75, "icon": "\ud83d\udc20", "notes": "Add the timed-entry slot when confirmed.", "map": "Shedd Aquarium"}, {"id": "lakefront", "time": "15:30", "title": "Lakefront walk", "area": "Museum Campus", "type": "side", "xp": 25, "icon": "\ud83c\udf0a", "notes": "Flexible decompression quest after the aquarium.", "map": "Museum Campus Chicago"}]}, {"date": "2026-08-08", "label": "Parade + Cats", "items": [{"id": "bud", "time": "10:00", "title": "Bud Billiken Parade", "area": "Bronzeville", "type": "main", "xp": 90, "icon": "\ud83c\udf89", "notes": "Morning parade quest. Verify your preferred viewing location.", "map": "Bud Billiken Parade Chicago"}, {"id": "cat-tour", "time": "15:00", "title": "Lincoln Square Cat Tour", "area": "Lincoln Square", "type": "main", "xp": 80, "icon": "\ud83d\udc08", "notes": "3\u20135 p.m. reservation window.", "map": "Lincoln Square Chicago"}, {"id": "lincoln-square", "time": "17:15", "title": "Explore Lincoln Square", "area": "Lincoln Square", "type": "side", "xp": 30, "icon": "\ud83c\udf7a", "notes": "Dinner, shops, or a record-store detour after the tour.", "map": "Lincoln Square Chicago"}]}, {"date": "2026-08-09", "label": "Cubs Day", "items": [{"id": "cubs", "time": "13:20", "title": "Chicago Cubs game", "area": "Wrigleyville", "type": "main", "xp": 100, "icon": "\u26be", "notes": "Add the exact game date, first-pitch time, and ticket section if this placeholder differs.", "map": "Wrigley Field"}, {"id": "northalsted", "time": "17:00", "title": "Northalsted walk", "area": "Lakeview", "type": "side", "xp": 30, "icon": "\ud83c\udff3\ufe0f\u200d\ud83c\udf08", "notes": "Optional postgame neighborhood quest.", "map": "Northalsted Chicago"}]}, {"date": "2026-08-10", "label": "The Loop", "items": [{"id": "architecture", "time": "10:00", "title": "Chicago architecture quest", "area": "The Loop", "type": "main", "xp": 75, "icon": "\ud83c\udfd9\ufe0f", "notes": "Use for the architecture cruise or your planned architecture stops.", "map": "Chicago Riverwalk"}, {"id": "legacy", "time": "14:00", "title": "Renee C. Hanover legacy stops", "area": "The Loop", "type": "main", "xp": 70, "icon": "\u2696\ufe0f", "notes": "UIC School of Law, Cultural Center, Federal Plaza, or other stops from the legacy map.", "map": "Chicago Cultural Center"}, {"id": "record", "time": "17:00", "title": "Buy a Chicago record", "area": "Flexible", "type": "side", "xp": 35, "icon": "\ud83d\udcbf", "notes": "Collector quest: log the shop, album, and price.", "map": "record store Chicago"}]}, {"date": "2026-08-11", "label": "Open Chicago Day", "items": [{"id": "free-day", "time": "10:00", "title": "Choose-your-own Chicago day", "area": "Chicago", "type": "main", "xp": 50, "icon": "\ud83d\uddfa\ufe0f", "notes": "A flexible day for anything elsewhere in the full itinerary.", "map": "Chicago"}]}, {"date": "2026-08-12", "label": "Final Full Day", "items": [{"id": "final-day", "time": "10:00", "title": "Final full-day quests", "area": "Chicago", "type": "main", "xp": 50, "icon": "\u2728", "notes": "Use Edit mode to replace this with the remaining itinerary stops.", "map": "Chicago"}]}, {"date": "2026-08-13", "label": "Return", "items": [{"id": "amtrak-home", "time": "18:00", "title": "Board Amtrak home", "area": "Chicago Union Station", "type": "main", "xp": 60, "icon": "\ud83d\ude86", "notes": "Trip-complete sequence. Add exact departure details.", "map": "Chicago Union Station"}]}];</script>
-  <script src="app.js"></script>
-</body>
-</html>
+<header class="top">
+  <div><p class="eyebrow">ANDREW’S TRIP RPG · V2</p><h1>CHICAGO ’26</h1></div>
+  <button id="addBtn" class="icon-btn" aria-label="Add quest">＋</button>
+</header>
+<main><section id="hero" class="hero"></section><section id="screen" class="screen"></section></main>
+<nav class="tabs">
+  <button data-tab="today" class="active">☀️<span>Today</span></button>
+  <button data-tab="trip">🗓️<span>Trip</span></button>
+  <button data-tab="quests">⭐<span>Quests</span></button>
+  <button data-tab="journal">📓<span>Journal</span></button>
+  <button data-tab="profile">🎒<span>Profile</span></button>
+</nav>
+<dialog id="modal"><form method="dialog" id="modalForm"><div id="modalBody"></div><div class="modal-actions"><button value="cancel" class="secondary">Cancel</button><button id="saveModal" value="default">Save</button></div></form></dialog>
+<div id="toast" role="status"></div>
+<script>window.SEED_ITINERARY=[{"date": "2026-08-04", "label": "Departure", "items": [{"id": "amtrak-out", "time": "16:00", "title": "Board Amtrak for Chicago", "area": "Washington, DC", "type": "main", "xp": 60, "icon": "\ud83d\ude86", "notes": "Roomette trip begins. Add the exact train number and departure time when confirmed.", "map": "Union Station Washington DC"}]}, {"date": "2026-08-05", "label": "Arrival + Wicker Park", "items": [{"id": "arrive-chi", "time": "10:00", "title": "Arrive at Chicago Union Station", "area": "The Loop", "type": "main", "xp": 40, "icon": "\ud83c\udfd9\ufe0f", "notes": "Get settled, drop bags, and start the trip.", "map": "Chicago Union Station"}, {"id": "wicker", "time": "14:00", "title": "Explore Wicker Park", "area": "Wicker Park", "type": "main", "xp": 45, "icon": "\ud83c\udfb8", "notes": "Neighborhood wandering, coffee, shops, and record-store possibilities.", "map": "Wicker Park Chicago"}, {"id": "pequods", "time": "19:30", "title": "Pequod\u2019s Pizza", "area": "Lincoln Park", "type": "main", "xp": 70, "icon": "\ud83c\udf55", "notes": "7:30 p.m. reservation. Caramelized-crust achievement unlocked.", "map": "Pequod's Pizza Chicago"}]}, {"date": "2026-08-06", "label": "Hyde Park", "items": [{"id": "phoenix", "time": "10:30", "title": "Garden of the Phoenix", "area": "Jackson Park", "type": "main", "xp": 50, "icon": "\ud83c\udf38", "notes": "Walk the Japanese garden and Jackson Park.", "map": "Garden of the Phoenix Chicago"}, {"id": "obama", "time": "13:30", "title": "Obama Presidential Center", "area": "Jackson Park", "type": "main", "xp": 80, "icon": "\ud83c\udfdb\ufe0f", "notes": "1:30 p.m. itinerary anchor. Add ticket details in the journal.", "map": "Obama Presidential Center Chicago"}, {"id": "hyde-side", "time": "16:30", "title": "Hyde Park side quest", "area": "Hyde Park", "type": "side", "xp": 25, "icon": "\ud83d\udcda", "notes": "Bookstore, architecture, coffee, or lakefront depending on energy.", "map": "Hyde Park Chicago"}]}, {"date": "2026-08-07", "label": "Museum Campus", "items": [{"id": "shedd", "time": "10:00", "title": "Shedd Aquarium", "area": "Museum Campus", "type": "main", "xp": 75, "icon": "\ud83d\udc20", "notes": "Replace 10:00 a.m. with the exact timed-entry slot when confirmed.", "map": "Shedd Aquarium"}, {"id": "lakefront", "time": "15:30", "title": "Lakefront walk", "area": "Museum Campus", "type": "side", "xp": 25, "icon": "\ud83c\udf0a", "notes": "Flexible decompression quest after the aquarium.", "map": "Museum Campus Chicago"}]}, {"date": "2026-08-08", "label": "Parade + Cats", "items": [{"id": "bud", "time": "10:00", "title": "Bud Billiken Parade", "area": "Bronzeville", "type": "main", "xp": 90, "icon": "\ud83c\udf89", "notes": "Morning parade quest. Verify your preferred viewing location.", "map": "Bud Billiken Parade Chicago"}, {"id": "cat-tour", "time": "15:00", "title": "Lincoln Square Cat Tour", "area": "Lincoln Square", "type": "main", "xp": 80, "icon": "\ud83d\udc08", "notes": "3\u20135 p.m. reservation window.", "map": "Lincoln Square Chicago"}, {"id": "lincoln-square", "time": "17:15", "title": "Explore Lincoln Square", "area": "Lincoln Square", "type": "side", "xp": 30, "icon": "\ud83c\udf7a", "notes": "Dinner, shops, or a record-store detour after the tour.", "map": "Lincoln Square Chicago"}]}, {"date": "2026-08-09", "label": "Cubs Day", "items": [{"id": "cubs", "time": "13:20", "title": "Chicago Cubs game", "area": "Wrigleyville", "type": "main", "xp": 100, "icon": "\u26be", "notes": "Add the exact game date, first-pitch time, and ticket section if this placeholder differs.", "map": "Wrigley Field"}, {"id": "northalsted", "time": "17:00", "title": "Northalsted walk", "area": "Lakeview", "type": "side", "xp": 30, "icon": "\ud83c\udff3\ufe0f\u200d\ud83c\udf08", "notes": "Optional postgame neighborhood quest.", "map": "Northalsted Chicago"}]}, {"date": "2026-08-10", "label": "The Loop", "items": [{"id": "architecture", "time": "10:00", "title": "Chicago architecture quest", "area": "The Loop", "type": "main", "xp": 75, "icon": "\ud83c\udfd9\ufe0f", "notes": "Use for the architecture cruise or your planned architecture stops.", "map": "Chicago Riverwalk"}, {"id": "record", "time": "17:00", "title": "Buy a Chicago record", "area": "Flexible", "type": "side", "xp": 35, "icon": "\ud83d\udcbf", "notes": "Collector quest: log the shop, album, and price.", "map": "record store Chicago"}]}, {"date": "2026-08-11", "label": "Open Chicago Day", "items": [{"id": "free-day", "time": "10:00", "title": "Choose-your-own Chicago day", "area": "Chicago", "type": "main", "xp": 50, "icon": "\ud83d\uddfa\ufe0f", "notes": "A flexible day for anything elsewhere in the full itinerary.", "map": "Chicago"}]}, {"date": "2026-08-12", "label": "Final Full Day", "items": [{"id": "final-day", "time": "10:00", "title": "Final full-day quests", "area": "Chicago", "type": "main", "xp": 50, "icon": "\u2728", "notes": "Replace this with the remaining itinerary stops.", "map": "Chicago"}]}, {"date": "2026-08-13", "label": "Return", "items": [{"id": "amtrak-home", "time": "18:00", "title": "Board Amtrak home", "area": "Chicago Union Station", "type": "main", "xp": 60, "icon": "\ud83d\ude86", "notes": "Trip-complete sequence. Add exact departure details.", "map": "Chicago Union Station"}]}];</script>
+<script src="app.js"></script>
+</body></html>

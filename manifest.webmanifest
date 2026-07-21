@@ -2,6 +2,7 @@
   "name": "Chicago \u201926: Trip Quest",
   "short_name": "Chicago \u201926",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f7f1df",
   "theme_color": "#17324d",
